@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Form Validation</title>
+  </head>
+  <body>
+    <div id="main">
+      <form action="" method="post" class="form" id="form-1">
+        <div id="heading">
+          <h2>Register</h2>
+          <p>Become a new member of forum</p>
+        </div>
+
+        <div class="form-group">
+          <label for="fullname">Your name</label>
+          <input
+            type="text"
+            name="fullname"
+            id="fullname"
+            placeholder="Ex: Almira Junny"
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Ex: almira@gmail.com"
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="passwork">Passwork</label>
+          <input
+            type="text"
+            name="password"
+            id="password"
+            placeholder="Enter your passwork"
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="passwork-confirm">Confirm passwork</label>
+          <input
+            type="text"
+            name="password-confirm"
+            id="password-confirm"
+            placeholder="Confirm your passwork"
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="avatar">Avatar</label>
+          <input type="file" name="avatar" id="avatar" />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="country">Country</label>
+          <select name="country" id="country">
+            <option value="">-- Select your country --</option>
+            <option value="Viet Nam">Viet Nam</option>
+            <option value="Japan">Japan</option>
+          </select>
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <div id="gender-main">
+            <div class="gender-container">
+              <input
+                type="radio"
+                name="gender"
+                value="male"
+                id="male"
+                class="gender"
+              />
+              <label for="male">Male</label>
+            </div>
+
+            <div class="gender-container">
+              <input
+                type="radio"
+                name="gender"
+                value="female"
+                id="female"
+                class="gender"
+              />
+              <label for="female">Female</label>
+            </div>
+
+            <div class="gender-container">
+              <input
+                type="radio"
+                name="gender"
+                value="other"
+                id="gender-other"
+                class="gender"
+              />
+              <label for="gender-other">Other</label>
+            </div>
+          </div>
+          <div class="form-message"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="interest">Choose your interest</label>
+          <div id="interest-main">
+            <div class="interest-container">
+              <input
+                type="checkbox"
+                name="interest"
+                id="coding"
+                class="interest"
+                value="coding"
+              />
+              <label for="coding">Coding</label>
+            </div>
+
+            <div class="interest-container">
+              <input
+                type="checkbox"
+                name="interest"
+                id="anime"
+                class="interest"
+                value="anime"
+              />
+              <label for="anime">Anime</label>
+            </div>
+
+            <div class="interest-container">
+              <input
+                type="checkbox"
+                name="interest"
+                id="game"
+                class="interest"
+                value="game"
+              />
+              <label for="game">Game</label>
+            </div>
+          </div>
+          <div class="form-message"></div>
+        </div>
+
+        <button id="submit-btn">Submit</button>
+      </form>
+    </div>
+    <script src="./validator.js"></script>
+    <script>
+      Validator({
+        form: "#form-1",
+        form_group: ".form-group",
+        message: ".form-message",
+        rules: [
+          Validator.isRequired("#fullname"),
+          Validator.isEmail("#email"),
+          Validator.isMinLength("#password", 8),
+          Validator.isRequired("#password-confirm"),
+          Validator.isConfirmed("#password-confirm", () => {
+            return document.querySelector("#password").value;
+          }),
+          Validator.isRequired("#avatar", "Please upload your avatar image"),
+          Validator.isRequired("#country", "Please select your country"),
+          Validator.isRequired(
+            "input[name='gender']",
+            "Please choose your gender"
+          ),
+          Validator.isRequired(
+            "input[name='interest']",
+            "Please choose your interests"
+          ),
+        ],
+        onSubmit: (data) => {
+          console.log(data);
+        },
+      });
+    </script>
+  </body>
+</html>

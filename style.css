@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Open Sans", sans-serif;
+  color: #333;
+}
+
+#main {
+  background-color: #f1f1f1;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  background-color: white;
+  padding: 40px 30px;
+  min-width: 450px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.8);
+}
+
+#heading {
+  margin-bottom: 30px;
+}
+
+#heading h2 {
+  font-size: 35px;
+  padding-bottom: 15px;
+  letter-spacing: 0.05rem;
+}
+
+#heading p {
+  font-size: 20px;
+  color: #636d77;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  padding-bottom: 10px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 2px solid #b3b3b3;
+  outline: none;
+}
+
+.form-group.invalid input,
+.form-group.invalid select {
+  border: 2px solid red;
+}
+
+.form-group input:hover,
+.form-group select:hover {
+  border-color: #1dbfaf;
+}
+
+.form-group .form-message {
+  font-size: 18px;
+  padding: 5px 0 0;
+  text-align: left;
+  color: red;
+}
+
+#gender-main {
+  display: flex;
+  margin-top: 10px;
+}
+
+.form-group.invalid #gender-main {
+  margin-bottom: 10px;
+}
+
+#gender-main .gender-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+#gender-main .gender-container input,
+#interest-main .interest-container input {
+  width: 20px;
+  height: 20px;
+}
+
+#gender-main .gender-container label,
+#interest-main .interest-container label {
+  padding-left: 10px;
+  padding-bottom: 0;
+  font-size: 18px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+#interest-main {
+  margin-top: 10px;
+}
+
+#interest-main .interest-container {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+#submit-btn {
+  font-size: 20px;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px 0;
+  margin-top: 20px;
+  background-color: #1dbfaf;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+#submit-btn:hover {
+  filter: brightness(85%);
+}
