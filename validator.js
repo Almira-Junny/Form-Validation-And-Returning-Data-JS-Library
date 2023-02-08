@@ -164,3 +164,17 @@ Validator.isConfirmed = (selector, getConfirmValue, message) => {
     },
   };
 };
+
+Validator.isValid = (selector, words, message) => {
+  return {
+    selector: selector,
+    test: (value) => {
+      for (var i = 0; i < words.length; i++) {
+        if (value.includes(words[i])) {
+          return message || "You are using forbidden word";
+        }
+      }
+      return undefined;
+    },
+  };
+};

@@ -163,6 +163,7 @@
         message: ".form-message",
         rules: [
           Validator.isRequired("#fullname"),
+          Validator.isValid("#fullname", ["dick", "suck"]),
           Validator.isEmail("#email"),
           Validator.isMinLength("#password", 8),
           Validator.isRequired("#password-confirm"),
@@ -184,6 +185,7 @@
           console.log(data);
         },
       });
+      console.log("Please".includes("Please"));
     </script>
   </body>
 </html>
