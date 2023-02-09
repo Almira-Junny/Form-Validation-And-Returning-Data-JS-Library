@@ -170,7 +170,7 @@ Validator.isValid = (selector, words, message) => {
     selector: selector,
     test: (value) => {
       for (var i = 0; i < words.length; i++) {
-        if (value.includes(words[i])) {
+        if (value.toLowerCase().includes(words[i])) {
           return message || "You are using forbidden word";
         }
       }
